@@ -10,7 +10,6 @@ Before running the app, you will need:
 1. **Your Letterboxd data export** (`.csv` file).
 2. **A free TMDb API key** (to fetch high-quality backdrops).
 
----
 
 #### 📥 How to Export Your Data from Letterboxd
 
@@ -19,8 +18,6 @@ Before running the app, you will need:
 3. Go to the **Import & Export** tab.
 4. Click **Export Your Data**.
 5. Unzip the downloaded file. You can use `watched.csv`, `ratings.csv`, or any movie list CSV export with this app.
-
----
 
 #### 🔑 How to Get a Free TMDb API Key
 
