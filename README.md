@@ -14,15 +14,14 @@ Before running the app, you will need:
 #### 📥 How to Export Your Data from Letterboxd
 
 1. Log in to [Letterboxd](https://letterboxd.com/).
-2. Hover over your profile icon at the top right and click **Settings**.
-3. Go to the **Import & Export** tab.
-4. Click **Export Your Data**.
-5. Unzip the downloaded file. You can use `watched.csv`, `ratings.csv`, or any movie list CSV export with this app.
+2. Go to [Export data](https://letterboxd.com/settings/data/).
+3. Click **Export Your Data**.
+4. Unzip the downloaded file. You can use `watched.csv`, `ratings.csv`, or any movie list CSV export with this app.
 
 #### 🔑 How to Get a Free TMDb API Key
 
 1. Create a free account at [The Movie Database (TMDb)](https://www.themoviedb.org/).
-2. Click your profile icon at the top right and go to **Account Settings**.
+2. Go to [API settings](https://www.themoviedb.org/settings/api)
 3. Select **API** from the left navigation menu.
 4. Click **Create** under the *Request an API Key* section and choose **Developer**.
 5. Accept the terms and fill in the brief form (you can put "Personal Use" for application name/URL).
@@ -37,4 +36,4 @@ Before running the app, you will need:
 3. Double-click to launch the app.
 4. Select your Letterboxd `.csv` file and paste your TMDb API Key.
 5. Click **Start Download**.
-EOF
+
