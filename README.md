@@ -12,7 +12,7 @@ Before running the app, you will need:
 
 ---
 
-### 📥 How to Export Your Data from Letterboxd
+#### 📥 How to Export Your Data from Letterboxd
 
 1. Log in to [Letterboxd](https://letterboxd.com/).
 2. Hover over your profile icon at the top right and click **Settings**.
@@ -22,7 +22,7 @@ Before running the app, you will need:
 
 ---
 
-### 🔑 How to Get a Free TMDb API Key
+#### 🔑 How to Get a Free TMDb API Key
 
 1. Create a free account at [The Movie Database (TMDb)](https://www.themoviedb.org/).
 2. Click your profile icon at the top right and go to **Account Settings**.
