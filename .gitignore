@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.env
+venv/
+env/
+build/
+dist/
+*.spec
+wallpapers_alta_calidad/
+*.jpg
+*.png
+*.csv
