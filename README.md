@@ -32,7 +32,7 @@ Before running the app, you will need:
 ## 🚀 How to Run
 
 1. Go to the **Releases** section on the right side of this repository.
-2. Download `LetterboxdWallpaperDownloader.exe`.
+2. Download `LetterboxdWallpaperDownloader.exe` (or the executable if you are in linux).
 3. Double-click to launch the app.
 4. Select your Letterboxd `.csv` file and paste your TMDb API Key.
 5. Click **Start Download**.
