@@ -10,7 +10,7 @@ A simple desktop app to download high-resolution (up to 4K) movie wallpapers str
 
 Before running the app, you will need:
 1. **Your Letterboxd data export** (`.csv` file).
-2. **A free TMDb API key** (to fetch high-quality backdrops).
+2. **A free TMDb API key** (to fetch high-quality backdrops)[^1].
 
 
 #### 📥 How to Export Your Data from Letterboxd
@@ -40,4 +40,4 @@ Before running the app, you will need:
 5. Click **Start Download**.
 
 
-Also: comment or dm me [here](https://www.reddit.com/r/Letterboxd/comments/1x6v0xv/comment/ph481t9/?context=3&utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button) and I will use my personal API if you are too bored to create a  TMDb account xd 
+[^1]: Comment or dm me [here](https://www.reddit.com/r/Letterboxd/comments/1x6v0xv/comment/ph481t9/?context=3&utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button) and I will use my personal API if you are too bored to create a  TMDb account xd 
