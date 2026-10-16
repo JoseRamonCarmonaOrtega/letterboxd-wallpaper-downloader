@@ -15,17 +15,19 @@ class WallpaperDownloaderApp:
         self.root.geometry("520x420")
         self.root.resizable(False, False)
 
+        # Variables
         self.csv_path = tk.StringVar()
         self.api_key = tk.StringVar()
-        self.output_dir = tk.StringVar(value="wallpapers_alta_calidad")
+        self.output_dir = tk.StringVar(value="high_quality_wallpapers")
 
         self._build_ui()
 
     def _build_ui(self):
         p = {"padx": 20, "pady": 5}
 
+        # CSV Selector
         tk.Label(
-            self.root, text="1. Selecciona tu CSV de Letterboxd:", font=("Arial", 10, "bold")
+            self.root, text="1. Select your Letterboxd CSV:", font=("Arial", 10, "bold")
         ).pack(anchor="w", **p)
         frame_csv = tk.Frame(self.root)
         frame_csv.pack(fill="x", padx=20)
@@ -33,18 +35,20 @@ class WallpaperDownloaderApp:
             frame_csv, textvariable=self.csv_path, state="readonly", width=40
         ).pack(side="left", fill="x", expand=True)
         tk.Button(
-            frame_csv, text="Buscar CSV...", command=self.select_csv
+            frame_csv, text="Browse CSV...", command=self.select_csv
         ).pack(side="right", padx=(5, 0))
 
+        # API Key
         tk.Label(
-            self.root, text="2. Introduce tu API Key de TMDb:", font=("Arial", 10, "bold")
+            self.root, text="2. Enter your TMDb API Key:", font=("Arial", 10, "bold")
         ).pack(anchor="w", **p)
         tk.Entry(
             self.root, textvariable=self.api_key, show="*", width=50
         ).pack(anchor="w", padx=20)
 
+        # Folder Selector
         tk.Label(
-            self.root, text="3. Carpeta de destino:", font=("Arial", 10, "bold")
+            self.root, text="3. Destination Folder:", font=("Arial", 10, "bold")
         ).pack(anchor="w", **p)
         frame_folder = tk.Frame(self.root)
         frame_folder.pack(fill="x", padx=20)
@@ -52,12 +56,13 @@ class WallpaperDownloaderApp:
             side="left", fill="x", expand=True
         )
         tk.Button(
-            frame_folder, text="Cambiar...", command=self.select_folder
+            frame_folder, text="Browse...", command=self.select_folder
         ).pack(side="right", padx=(5, 0))
 
+        # Start Button
         self.btn_start = tk.Button(
             self.root,
-            text="🚀 Comenzar Descarga",
+            text="🚀 Start Download",
             font=("Arial", 11, "bold"),
             bg="#28a745",
             fg="white",
@@ -65,18 +70,20 @@ class WallpaperDownloaderApp:
         )
         self.btn_start.pack(pady=15)
 
+        # Progress bar
         self.progress = ttk.Progressbar(
             self.root, orient="horizontal", length=470, mode="determinate"
         )
         self.progress.pack(padx=20, pady=5)
 
+        # Status text
         self.status_label = tk.Label(
-            self.root, text="Esperando datos...", fg="gray"
+            self.root, text="Waiting for input...", fg="gray"
         )
         self.status_label.pack(pady=5)
 
     def select_csv(self):
-        path = filedialog.askopenfilename(filetypes=[("Archivos CSV", "*.csv")])
+        path = filedialog.askopenfilename(filetypes=[("CSV Files", "*.csv")])
         if path:
             self.csv_path.set(path)
 
@@ -88,7 +95,7 @@ class WallpaperDownloaderApp:
     def start_download_thread(self):
         if not self.csv_path.get() or not self.api_key.get():
             messagebox.showwarning(
-                "Faltan datos", "Por favor selecciona un CSV e introduce tu API Key."
+                "Missing Information", "Please select a CSV file and enter your TMDb API Key."
             )
             return
 
@@ -106,7 +113,7 @@ class WallpaperDownloaderApp:
         try:
             df = pd.read_csv(csv_file)
         except Exception as e:
-            messagebox.showerror("Error", f"No se pudo leer el CSV: {e}")
+            messagebox.showerror("Error", f"Could not read CSV file: {e}")
             self.btn_start.config(state="normal")
             return
 
@@ -119,7 +126,7 @@ class WallpaperDownloaderApp:
             year = str(data["Year"]).strip()
 
             self.status_label.config(
-                text=f"Descargando ({i+1}/{total}): {title}...", fg="black"
+                text=f"Downloading ({i+1}/{total}): {title}...", fg="black"
             )
             self.progress["value"] = ((i + 1) / total) * 100
 
@@ -129,11 +136,11 @@ class WallpaperDownloaderApp:
             time.sleep(0.3)
 
         self.status_label.config(
-            text=f"¡Completado! {success_count}/{total} descargados.", fg="green"
+            text=f"Completed! {success_count}/{total} downloaded.", fg="green"
         )
         messagebox.showinfo(
-            "Éxito",
-            f"Proceso completado.\nSe guardaron {success_count} fondos en la carpeta '{out_folder}'.",
+            "Success",
+            f"Process completed.\nSaved {success_count} wallpapers into '{out_folder}'.",
         )
         self.btn_start.config(state="normal")
 
@@ -143,7 +150,7 @@ class WallpaperDownloaderApp:
             "api_key": api_key,
             "query": title,
             "year": year,
-            "language": "es-ES",
+            "language": "en-US",
         }
         try:
             res = requests.get(url, params=params).json()
@@ -154,17 +161,3 @@ class WallpaperDownloaderApp:
                     data = requests.get(img_url).content
                     clean_name = "".join(
                         [c for c in title if c.isalnum() or c == " "]
-                    ).rstrip()
-                    file_path = os.path.join(folder, f"{clean_name}_{year}.jpg")
-                    with open(file_path, "wb") as f:
-                        f.write(data)
-                    return True
-            return False
-        except Exception:
-            return False
-
-
-if __name__ == "__main__":
-    root = tk.Tk()
-    app = WallpaperDownloaderApp(root)
-    root.mainloop()
