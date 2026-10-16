@@ -1,3 +1,6 @@
+cd /home/joseramon/Estudios/proyectosmongolos/letervo/proyecto/
+
+cat << 'EOF' > gui_app.py
 import os
 import threading
 import time
@@ -159,5 +162,23 @@ class WallpaperDownloaderApp:
                 if backdrop:
                     img_url = f"https://image.tmdb.org/t/p/original{backdrop}"
                     data = requests.get(img_url).content
-                    clean_name = "".join(
-                        [c for c in title if c.isalnum() or c == " "]
+                    clean_name = "".join([c for c in title if c.isalnum() or c == " "]).rstrip()
+                    file_path = os.path.join(folder, f"{clean_name}_{year}.jpg")
+                    with open(file_path, "wb") as f:
+                        f.write(data)
+                    return True
+            return False
+        except Exception:
+            return False
+
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = WallpaperDownloaderApp(root)
+    root.mainloop()
+EOF
+
+# Subir la corrección de sintaxis a GitHub
+git add gui_app.py
+git commit -m "Fix syntax error in gui_app.py"
+git push origin main
