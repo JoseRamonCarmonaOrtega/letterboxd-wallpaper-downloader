@@ -3,6 +3,8 @@
 A simple desktop app to download high-resolution (up to 4K) movie wallpapers straight from your Letterboxd CSV exports using the TMDb API.
 
 ---
+<img width="1365" height="768" alt="example" src="https://github.com/user-attachments/assets/72999a17-4db0-4883-93a4-642314ff5696" />
+
 
 ## 📋 Requirements
 
