@@ -1,6 +1,3 @@
-cd /home/joseramon/Estudios/proyectosmongolos/letervo/proyecto/
-
-cat << 'EOF' > gui_app.py
 import os
 import threading
 import time
@@ -176,9 +173,3 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = WallpaperDownloaderApp(root)
     root.mainloop()
-EOF
-
-# Subir la corrección de sintaxis a GitHub
-git add gui_app.py
-git commit -m "Fix syntax error in gui_app.py"
-git push origin main
